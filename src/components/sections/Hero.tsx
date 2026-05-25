@@ -143,7 +143,7 @@ export default function Hero() {
           
           <h1 className="text-6xl md:text-8xl font-black mb-6 leading-[1.1] tracking-tight">
             <span className="text-gradient">Hi, I'm</span> <br />
-            <span className="text-white">Kishore</span>
+            <span className="text-white">Kishore Kanitkan</span>
           </h1>
           
           <div className="text-2xl md:text-3xl text-slate-400 font-light mb-10 max-w-2xl leading-relaxed">
