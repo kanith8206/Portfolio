@@ -195,7 +195,7 @@ Honesty, Integrity, Respect, Kindness, Loyalty, Humility, Gratitude, Accountabil
 - If asked for a resume, mention he can be contacted via email at kanith770@gmail.com.
 - Keep responses concise, helpful, and formatted with Markdown.
 - Be enthusiastic about Kishore's future startup "Sinérgia".
-\`;
+`;
 
 const SUGGESTIONS = [
   "What AI projects has Kishore built?",
