@@ -241,7 +241,7 @@ export default function AIChat() {
 
       // Using the correct pattern from @google/genai skill
       const response = await aiRef.current.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.5-flash",
         contents: [...historyItems, { role: 'user', parts: [{ text: text }] }],
         config: {
           systemInstruction: PORTFOLIO_CONTEXT,
@@ -266,14 +266,14 @@ export default function AIChat() {
       console.error("AI Chat Error:", error);
       setIsTyping(false);
       
-      let errorMessage = "I'm having a bit of trouble connecting to my neural network.";
+      let errorMessage = `I'm having a bit of trouble connecting to my neural network. (Error: ${error.message || error.toString()})`;
       
       if (error.message?.includes("API_KEY_INVALID") || error.message?.includes("400")) {
-        errorMessage = "**System Error:** API Key invalid or missing. Please check the **Settings > Secrets** panel in AI Studio.";
+        errorMessage = `**System Error:** API Key invalid or missing. Please check the **Settings > Secrets** panel in AI Studio. (Error: ${error.message})`;
       } else if (error.message?.includes("PERMISSION_DENIED")) {
-        errorMessage = "**System Error:** Permission denied. Check API access.";
+        errorMessage = `**System Error:** Permission denied. Check API access. (Error: ${error.message})`;
       } else if (error.message?.includes("RESOURCE_EXHAUSTED")) {
-        errorMessage = "**System Error:** Quota exceeded. Please try again soon.";
+        errorMessage = `**System Error:** Quota exceeded. Please try again soon. (Error: ${error.message})`;
       }
 
       setMessages(prev => [...prev, { 
@@ -516,7 +516,7 @@ export default function AIChat() {
                    <div className="flex items-center gap-7 text-[9px] text-slate-700 font-mono tracking-[0.2em] relative">
                     <div className="flex items-center gap-2 group transition-colors hover:text-blue-500">
                       <Sparkles className="h-3 w-3 text-blue-600 group-hover:animate-pulse" /> 
-                      <span>CORE:GEMINI-3-FLASH</span>
+                      <span>CORE:GEMINI-2.5-FLASH</span>
                     </div>
                     <div className="flex items-center gap-2 group transition-colors hover:text-purple-500">
                       <Zap className="h-3 w-3 text-purple-600" /> 
